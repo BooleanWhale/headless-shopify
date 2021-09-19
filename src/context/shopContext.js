@@ -42,8 +42,14 @@ class ShopProvider extends Component {
       })
   }
 
-  addItemToCheckout = async () => {
-
+  addItemToCheckout = async (variantId, quantity) => {
+    const lineItemsToAdd = [
+      {
+        variantId,
+        quantity: parseInt(quantity, 10)
+      }
+    ]
+    const checkout = await client.checkout.addLineItems()
   }
 
   removeLineItem = async (itemId) => {
@@ -60,9 +66,9 @@ class ShopProvider extends Component {
     this.setState({ product: product })
   }
 
-  closeCart = () => {}
+  closeCart = () => { this.setState({isCartOpen: false}) }
 
-  openCart = () => {}
+  openCart = () => { this.setState({isCartOpen: true}) }
 
   closeMenu = () => {}
 

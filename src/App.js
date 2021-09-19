@@ -1,5 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Cart from './components/Cart';
+import NavBar from './components/NavBar';
 import { ShopContext } from './context/shopContext';
 
 import Home from './pages/Home'
@@ -9,7 +11,8 @@ function App() {
 
   return (
     <Router>
-      <p>nav</p>
+      <NavBar/>
+      <Cart/>
       <Switch>
         <Route path='/products/:handle'><ProductPage/></Route>
         <Route path='/'><Home/></Route>
