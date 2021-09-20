@@ -49,11 +49,14 @@ class ShopProvider extends Component {
         quantity: parseInt(quantity, 10)
       }
     ]
-    const checkout = await client.checkout.addLineItems()
+    const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemsToAdd)
+    this.setState({ checkout: checkout })
+    this.openCart()
   }
 
   removeLineItem = async (itemId) => {
-
+    const checkout = await client.checkout.removeLineItems(this.state.checkout.id, itemId)
+    this.setState({checkout: checkout})
   }
 
   fetchAllProducts = async () => {
