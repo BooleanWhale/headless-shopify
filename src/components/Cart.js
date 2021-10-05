@@ -62,7 +62,7 @@ const Cart = () => {
 
           <DrawerFooter>
             <Button w="100%">
-              <Link href={checkout.webUrl} w="100%">
+              <Link href={checkout.webUrl} w="100%" textDecoration="none">
               Checkout
               </Link>
             </Button>
