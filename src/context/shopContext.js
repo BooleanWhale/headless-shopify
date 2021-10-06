@@ -73,15 +73,15 @@ class ShopProvider extends Component {
 
   openCart = () => { this.setState({isCartOpen: true}) }
 
-  closeMenu = () => {}
+  closeMenu = () => { this.setState({isMenuOpen: false}) }
 
-  openMenu = () => {}
+  openMenu = () => { this.setState({isMenuOpen: true}) }
 
   render() {
 
     console.log(this.state.checkout)
 
-    return ( 
+    return (   
       <ShopContext.Provider 
         value={{
           ...this.state,
@@ -91,7 +91,7 @@ class ShopProvider extends Component {
           removeLineItem: this.removeLineItem,
           closeCart: this.closeCart,
           openCart: this.openCart,
-          closeMenu: this.openMenu,
+          closeMenu: this.closeMenu,
           openMenu: this.openMenu,
         }}>
         { this.props.children} 
